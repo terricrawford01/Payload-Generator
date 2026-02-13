@@ -20,4 +20,12 @@ def fuzz_generator(target_input):
 
 my_payloads = (fuzz_generator(user_input))
 print (len(my_payloads))
-print (my_payloads)
+print (my_payloads) 
+
+save_choice = input("Would you like to save the payloads to a text file? yes or no?")
+if save_choice.lower() == "yes":
+    with open("payloads.txt", "w") as file:
+        for payload in my_payloads:
+            file.write(payload + "\n") 
+    print("Payloads saved to payloads.txt")
+else:    print("Payloads not saved.")
